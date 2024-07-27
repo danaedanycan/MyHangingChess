@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         else if(pieceClass ){
             console.log("fefef")
-            square.style.backgroundImage='url(images/king-black.svg)\''
+            square.style.backgroundImage='url(images/pawncible.png)'
             square.classList.add('piece');
             square.setAttribute('data-piece', pieceClass);
         }
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     for (let i = 0; i < possible_moves.length; i++) {
                         if (possible_moves[i][0] === row && possible_moves[i][1] === col) {
                             possible_moves.splice(i, 1);
-                            break; // Ajuster l'index après la suppression
+                            i--;// Ajuster l'index après la suppression
                         }
                     }
                 } else {
@@ -91,18 +91,17 @@ document.addEventListener('DOMContentLoaded', async () => {
      }
 async function handleSquareClick(row, col, square) {
     const piece = square.getAttribute('data-piece');
+    updateBoard(Board);
     if(piece){
 
         await selectPiece(piece, row, col, square);
     }
     else{
         if(selectedPiece!==null){
-            console.log("iciiiiiiiiiii");
-            await updateBoard(Board);
             ActualGame=await Move(ActualGame,selectedPiece,row,col);
             Board=SetBoard(ActualGame);
             console.log(Board);
-            await updateBoard(Board);
+            updateBoard(Board);
             selectedPiece=null
 
         }
@@ -113,9 +112,8 @@ async function handleSquareClick(row, col, square) {
 
     async function selectPiece(piece, pos_x, pos_y, square) {
         if(selectedPiece){
-
-            deselectPiece(selectedPiece.square)
             await updateBoard(Board);
+            deselectPiece(selectedPiece.square)
         }
         selectedPiece = {piece, pos_x, pos_y, square};
         square.classList.add('selected');
@@ -126,8 +124,14 @@ async function handleSquareClick(row, col, square) {
         for (let i = 0; i < possible_moves.length; i++) {
             console.log(possible_moves[i]);
             const newSquare = boardElement.children[(7-possible_moves[i][1]) * 8 + (7-possible_moves[i][0])];
-            newSquare.style.backgroundImage = 'url(images/cible.png)';
-            newSquare.classList.add('piece');
+            if(newSquare.classList.contains('piece')) {
+                newSquare.style.backgroundImage = 'url(images/pawncible.png)';
+                newSquare.classList.add('piece');
+            }
+            else{
+                newSquare.style.backgroundImage = 'url(images/cible.png)';
+                newSquare.classList.add('piece');
+            }
             //square.setAttribute('data-piece', "queen-white");
         }
     }
@@ -140,6 +144,7 @@ async function handleSquareClick(row, col, square) {
                 newSquare.classList.remove('piece');
                 newSquare.removeAttribute('data-piece'); // Suppression de l'attribut data-piece sur newSquare
             }
+            possible_moves=[]
             selectedPiece.square.classList.remove('selected');
             const row = selectedPiece.row;
             const col = selectedPiece.col;
