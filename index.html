@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hanging Chess</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>The Hanging Chess</h1>
+        </header>
+        <main>
+            <div class="hangman">
+                <div class="hangman-header">
+                    <span>Value</span>
+                    <button>X</button>
+                </div>
+                <div class="hangman-figure">
+                    <img src="images/hangman-figure.png" alt="Hangman Figure">
+                </div>
+                <div class="hangman-word">
+                    <span>S</span>
+                    <span>A</span>
+                    <span>L</span>
+                    <span>U</span>
+                    <span>T</span>
+                </div>
+                <div class="hangman-letters">
+                    <button>A</button>
+                    <button>B</button>
+                    <button>C</button>
+                    <button>D</button>
+                    <button>E</button>
+                    <button>F</button>
+                    <button>G</button>
+                    <button>H</button>
+                    <button>I</button>
+                    <button>J</button>
+                    <button>K</button>
+                    <button>L</button>
+                    <button>M</button>
+                    <button>N</button>
+                    <button>O</button>
+                    <button>P</button>
+                    <button>Q</button>
+                    <button>R</button>
+                    <button>S</button>
+                    <button>T</button>
+                    <button>U</button>
+                    <button>V</button>
+                    <button>W</button>
+                    <button>X</button>
+                    <button>Y</button>
+                    <button>Z</button>
+                </div>
+            </div>
+            <div class="chess-board">
+                <div id="board" class="board"></div>
+                <div class="players">
+                    <div class="player">
+                        <img src="images/player1.png" alt="Player 1">
+                        <span>Player 1</span>
+                    </div>
+                    <div id="white-captured-pieces" class="captured-pieces"></div>
+                    <div id="black-captured-pieces" class="captured-pieces"></div>
+                    <div class="player">
+                        <img src="images/player2.png" alt="Player 2">
+                        <span>Player 2</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
+

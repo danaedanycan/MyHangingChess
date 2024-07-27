@@ -1,0 +1,191 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    font-family: 'Fantasy', sans-serif;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    padding: 20px;
+}
+
+.hangman {
+    width: 30%;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.hangman-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hangman-header span {
+    font-weight: bold;
+}
+
+.hangman-header button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.hangman-figure {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hangman-figure img {
+    width: 100%;
+    height: auto;
+}
+
+.hangman-word {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.hangman-word span {
+    margin: 0 5px;
+    border-bottom: 2px solid #000;
+}
+
+.hangman-letters {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+
+.hangman-letters button {
+    background-color: #ddd;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.chess-board {
+    width: 70%;
+    display: flex;
+}
+
+.board {
+    width: 80%;
+    height: 600px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 2px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.board div {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+}
+
+.dark {
+    --dark-color: #769656;
+}
+
+.light {
+    --light-color: #eeeed2;
+}
+
+.board .dark {
+    background-color: var(--dark-color);
+}
+
+.board .light {
+    background-color: var(--light-color);
+}
+
+.board .piece {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.players {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.player img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.captured-pieces {
+    height: 100px;
+    background-color: #ddd;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    margin: 10px 0;
+    overflow: auto;
+}
+
+.players .player img {
+    width: 50px;
+    height: 50px;
+}
+
+.players .captured-pieces {
+    width: 100%;
+    background-color: #f0f0f0;
+}
+
+.captured-pieces img {
+    width: 20px;
+    height: 20px;
+    margin: 2px;
+}
+
